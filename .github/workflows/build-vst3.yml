@@ -1,1 +1,36 @@
+name: Build VST3 Plugin
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install JUCE
+      run: |
+        cd C:\
+        git clone --depth 1 --branch 7.0.9 https://github.com/juce-framework/JUCE.git JUCE
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+      with:
+        vs-version: '17.x'
+    
+    - name: Build VST3
+      run: |
+        msbuild "${{ github.workspace }}\Builds\VisualStudio2022\YM2203Synth.sln" /p:Configuration=Release /p:Platform=x64
+    
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: YM2203Synth-VST3
+        path: ${{ github.workspace }}\Builds\VisualStudio2022\x64\Release\VST3\
+        retention-days: 30
