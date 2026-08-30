@@ -24,18 +24,10 @@ jobs:
       with:
         vs-version: 17.0
     
-    - name: Build Projucer
+    - name: Check files
       run: |
-        $JUCE_PATH = "C:\JUCE"
-        $PROJUCER_SLN = "$JUCE_PATH\extras\Projucer\Builds\VisualStudio2022\Projucer.sln"
-        msbuild "$PROJUCER_SLN" /p:Configuration=Release /p:Platform=x64
-    
-    - name: Generate Project with Projucer
-      run: |
-        $JUCE_PATH = "C:\JUCE"
-        $PROJUCER = "$JUCE_PATH\extras\Projucer\Builds\VisualStudio2022\x64\Release\Projucer.exe"
-        $PROJECT_FILE = "${{ github.workspace }}\YM2203Synth.jucer"
-        & $PROJUCER --resave "$PROJECT_FILE"
+        dir "${{ github.workspace }}"
+        dir "${{ github.workspace }}\Builds" -ErrorAction SilentlyContinue
     
     - name: Build VST3
       run: |
