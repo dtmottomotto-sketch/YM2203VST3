@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JUCERPROJECT id="YM2203S" name="YM2203Synth" projectType="audioplug" useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1" cppLanguageStandard="17">
+  <MAINGROUP id="root" name="YM2203Synth">
+    <GROUP id="{550E8400-E29B-41D4-A716-446655440000}" name="Source">
+      <GROUP id="{660E8400-E29B-41D4-A716-446655440001}" name="YM2203_Emulator">
+        <FILE id="YM2203H" name="YM2203.h" compile="0" resource="0" file="Source/YM2203_Emulator/YM2203.h"/>
+        <FILE id="YM2203CP" name="YM2203.cpp" compile="1" resource="0" file="Source/YM2203_Emulator/YM2203.cpp"/>
+      </GROUP>
+      <GROUP id="{770E8400-E29B-41D4-A716-446655440002}" name="VGZParser">
+        <FILE id="VGZPH" name="VGZParser.h" compile="0" resource="0" file="Source/VGZParser/VGZParser.h"/>
+        <FILE id="VGZPCP" name="VGZParser.cpp" compile="1" resource="0" file="Source/VGZParser/VGZParser.cpp"/>
+      </GROUP>
+      <GROUP id="{880E8400-E29B-41D4-A716-446655440003}" name="Plugin">
+        <FILE id="PLUGINH" name="PluginProcessor.h" compile="0" resource="0" file="Source/Plugin/PluginProcessor.h"/>
+        <FILE id="PLUGINCP" name="PluginProcessor.cpp" compile="1" resource="0" file="Source/Plugin/PluginProcessor.cpp"/>
+        <FILE id="EDITORH" name="PluginEditor.h" compile="0" resource="0" file="Source/Plugin/PluginEditor.h"/>
+        <FILE id="EDITORCP" name="PluginEditor.cpp" compile="1" resource="0" file="Source/Plugin/PluginEditor.cpp"/>
+      </GROUP>
+      <FILE id="PARAMSH" name="PluginParams.h" compile="0" resource="0" file="Source/PluginParams.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="1" JUCE_DISPLAY_SPLASH_SCREEN="0"/>
+  <EXPORTFORMATS>
+    <VS2022 targetFolder="Builds/VisualStudio2022">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="YM2203Synth"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="YM2203Synth"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="C:/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="C:/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2022>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1"/>
+    <MODULE id="juce_core" showAllCode="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1"/>
+    <MODULE id="juce_events" showAllCode="1"/>
+    <MODULE id="juce_graphics" showAllCode="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
